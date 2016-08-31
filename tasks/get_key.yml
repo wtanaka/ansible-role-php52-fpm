@@ -1,0 +1,24 @@
+---
+- name: download wtanaka.com ppa key
+  command: >
+    gpg --keyserver keyserver.ubuntu.com
+    --recv 6ADD8374BF55B88178528E5F4121582229610B46
+  register: wtanaka_ppa_key_result
+  changed_when: "'unchanged: 1' not in wtanaka_ppa_key_result.stderr"
+  sudo: yes
+
+- name: write wtanaka ppa key to /root
+  command: >
+    gpg --output /root/wtanaka_ppa.gpg
+        --export 6ADD8374BF55B88178528E5F4121582229610B46
+  args:
+    creates: /root/wtanaka_ppa.gpg
+  sudo: yes
+
+- name: add wtanaka ppa key to apt-key
+  apt_key: file=/root/wtanaka_ppa.gpg
+  sudo: yes
+
+- name: apt-get update
+  apt: update_cache=true cache_valid_time=3600
+  sudo: yes
