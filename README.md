@@ -4,14 +4,15 @@
 wtanaka.php52-fpm
 =================
 
-Ansible role to install google php52-fpm
+Ansible role to install php52-fpm
 
 Example Playbook
--------------------------
+----------------
 
     - hosts: all
       roles:
-         - wtanaka.php52-fpm
+         - role: wtanaka.php52-fpm
+           php52_fpm_listen: 127.0.0.1:9000
 
 License
 -------
