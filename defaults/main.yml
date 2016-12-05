@@ -1,0 +1,2 @@
+---
+php52_fpm_listen: /var/run/php5-fpm.sock
