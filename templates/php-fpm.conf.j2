@@ -34,11 +34,11 @@
 		<section name="pool">
 
 			Name of pool. Used in logs and stats.
-			<value name="name">default</value>
+			<value name="name">{{php52_pool_name}}</value>
 
 			Address to accept fastcgi requests on.
 			Valid syntax is 'ip.ad.re.ss:port' or just 'port' or '/path/to/unix/socket'
-			<value name="listen_address">127.0.0.1:9000</value>
+			<value name="listen_address">{{php52_fpm_listen}}</value>
 
 			<value name="listen_options">
 
@@ -60,37 +60,37 @@
 			</value>
 
 			Unix user of processes
-			<value name="user">www-data</value>
+			<value name="user">{{php52_unix_user}}</value>
 			Unix group of processes
-			<value name="group">www-data</value>
+			<value name="group">{{php52_unix_group}}</value>
 
 			Process manager settings
 			<value name="pm">
 
 				Sets style of controling worker process count.
 				Valid values are 'static' and 'apache-like'
-				<value name="style">static</value>
+				<value name="style">{{php52_pm_style}}</value>
 
 				Sets the limit on the number of simultaneous requests that will be served.
 				Equivalent to Apache MaxClients directive.
 				Equivalent to PHP_FCGI_CHILDREN environment in original php.fcgi
 				Used with any pm_style.
-				<value name="max_children">5</value>
+				<value name="max_children">{{php52_pm_max_children}}</value>
 
 				Settings group for 'apache-like' pm style
 				<value name="apache_like">
 
 					Sets the number of server processes created on startup.
 					Used only when 'apache-like' pm_style is selected
-					<value name="StartServers">20</value>
+					<value name="StartServers">{{php52_pm_start_servers}}</value>
 
 					Sets the desired minimum number of idle server processes.
 					Used only when 'apache-like' pm_style is selected
-					<value name="MinSpareServers">5</value>
+					<value name="MinSpareServers">{{php52_pm_min_spare_servers}}</value>
 
 					Sets the desired maximum number of idle server processes.
 					Used only when 'apache-like' pm_style is selected
-					<value name="MaxSpareServers">35</value>
+					<value name="MaxSpareServers">{{php52_pm_max_spare_servers}}</value>
 
 				</value>
 

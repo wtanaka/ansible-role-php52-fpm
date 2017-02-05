@@ -1,2 +1,11 @@
 ---
-php52_fpm_listen: /var/run/php5-fpm.sock
+php52_fpm_listen: 127.0.0.1:9000
+php52_pool_name: default
+php52_unix_user: www-data
+php52_unix_group: www-data
+# PHP process manager settings
+php52_pm_style: static
+php52_pm_max_children: 5
+php52_pm_start_servers: 20
+php52_pm_min_spare_servers: 5
+php52_pm_max_spare_servers: 35
