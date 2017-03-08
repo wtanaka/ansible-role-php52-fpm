@@ -13,5 +13,5 @@ test:
       - >
         wget -qO- bit.ly/ansibletest | env
         DOCKER_IMAGES="ubuntu:14.04"
-        ANSIBLE_VERSIONS="1.4.4"
+        ANSIBLE_VERSIONS="1.4.4 2.2.1.0"
         sh
