@@ -1,7 +1,14 @@
 ---
+- name: optimization -- short circuit slow call to apt_key
+  sudo: yes
+  command: apt-key list
+  register: apt_key_list
+  changed_when: False
+
 - name: add wtanaka ppa key to apt-key
   apt_key: file=/root/wtanaka_ppa.gpg
   sudo: yes
+  when: "'29610B46' not in apt_key_list.stdout"
 
 - name: wtanaka sources.list
   template: >
